@@ -178,13 +178,13 @@ void sort(block*& head)
         return;
     }
 
-    bool sorted;
+    bool sorted=false;
     do
     {
         block* temp=head;
-        while(temp!=NULL)
+        while(temp->getnext()!=NULL)
         {
-            if(temp->getdata()==temp->getnext()->getdata())
+            if(temp->getdata()<temp->getnext()->getdata())
             {
                 int hold= temp->getdata();
                 temp->setdata(temp->getnext()->getdata());
@@ -193,7 +193,7 @@ void sort(block*& head)
             }
             temp=temp->getnext();
         }
-    }while(sorted=true);
+    }while(sorted==true);
 
     cout<<"Sorted Linklist : ";
     display(head);
